@@ -12,11 +12,16 @@
     <video id="videoPlayer" controls width="640" height="360" autoplay></video>
     <script>
         // Set the URL of the DASH manifest file
-        var url = "https://localhost:8080/manifest.mpd";
+        var url = "https://localhost:9000/manifest.mpd";
 
         // Initialize dash.js player
         var player = dashjs.MediaPlayer().create();
         player.initialize(document.getElementById("videoPlayer"), url, true);
+
+        // Log errors for debugging
+        player.on(dashjs.MediaPlayer.events.ERROR, function(e) {
+            console.error("DASH.js Error:", e);
+        });
     </script>
 </body>
 </html>
