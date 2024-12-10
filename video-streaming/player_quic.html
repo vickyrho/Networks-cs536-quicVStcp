@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASH Video Player</title>
+    <!-- Include dash.js library -->
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+</head>
+<body>
+    <h1>DASH Video Streaming</h1>
+    <video id="videoPlayer" controls width="640" height="360" autoplay></video>
+    <script>
+        // Set the URL of the DASH manifest file
+        var url = "https://localhost:8080/manifest.mpd";
+
+        // Initialize dash.js player
+        var player = dashjs.MediaPlayer().create();
+        player.initialize(document.getElementById("videoPlayer"), url, true);
+    </script>
+</body>
+</html>
